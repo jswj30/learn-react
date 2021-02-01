@@ -1,8 +1,16 @@
-import React, from "react";
+import React, { Fragment } from "react";
+import "./App.css";
 
 function App() {
-  const name = "리r액트";
-  return <div>{name === "리액트" && <h1>리액트입니다.</h1>}</div>;
+  const name = "리액트";
+  return (
+    <>
+      {/* 주석 */}
+      <div className="react">{name}</div>
+      // 이런 주석 /* 저런 주석 */
+      <input />
+    </>
+  );
 }
 
 export default App;
