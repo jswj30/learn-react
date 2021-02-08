@@ -15,9 +15,9 @@ class LifeCycleSample extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     console.log("getDerivedStateFromProps");
-    if (nextProps !== prevState) {
+    if (nextProps.color !== prevState.color) {
       return {
-        color: nextProps,
+        color: nextProps.color,
       };
     }
     return null;
@@ -42,8 +42,16 @@ class LifeCycleSample extends Component {
     });
   };
 
-  getSnapshotBeforeUpdate(prevProps, prevState, snapshot) {
-    console.log("getSnapshotBeforeUpdate", prevProps, prevState);
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log("getSnapshotBeforeUpdate");
+    if (prevProps.color !== this.props.color) {
+      return this.myRef.style.color;
+    }
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("componentDidUpdate", prevProps, prevState);
     if (snapshot) {
       console.log("업데이트되기 직전 색상: ", snapshot);
     }
