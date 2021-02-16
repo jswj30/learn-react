@@ -1,11 +1,20 @@
 import React from "react";
-import Info from "./Info";
+import Average from "./Average";
 
 const App = () => {
-  return <Info />;
+  return <Average />;
 };
 
 export default App;
+
+// import React from "react";
+// import Info from "./Info";
+
+// const App = () => {
+//   return <Info />;
+// };
+
+// export default App;
 
 // import React from "react";
 // import Counter from "./Counter";
