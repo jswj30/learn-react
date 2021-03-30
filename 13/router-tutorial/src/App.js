@@ -13,10 +13,13 @@ const App = () => {
         <li>
           <Link to="/about">소개</Link>
         </li>
+        <li>
+          <Link to="/info">정보</Link>
+        </li>
       </ul>
       <hr />
       <Route path="/" component={Home} exact={true} />
-      <Route path="/about" component={About} />
+      <Route path={["/about", "/info"]} component={About} />
     </div>
   );
 };
