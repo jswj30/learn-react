@@ -1,4 +1,5 @@
 import React from "react";
+import qs from "qs";
 
 const data = {
   adesanya: {
@@ -11,7 +12,12 @@ const data = {
   },
 };
 
-const Profile = ({ match }) => {
+const Profile = ({ match, location }) => {
+  const query = qs.parse(location.search, {
+    ignoreQueryPrefix: true,
+  });
+  const showDetail = query.detail === "true";
+
   const { username } = match.params;
   const profile = data[username];
   // console.log(match);
@@ -24,6 +30,7 @@ const Profile = ({ match }) => {
         {username}({profile.name})
       </h3>
       <p>{profile.description}</p>
+      {showDetail && <p>detail이 true입니다.</p>}
     </div>
   );
 };
