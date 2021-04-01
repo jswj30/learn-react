@@ -1,5 +1,7 @@
 import React from "react";
 import qs from "qs";
+import { withRouter } from "react-router-dom";
+import WithRouterSample from "./WithRouterSample";
 
 const data = {
   adesanya: {
@@ -31,8 +33,9 @@ const Profile = ({ match, location }) => {
       </h3>
       <p>{profile.description}</p>
       {showDetail && <p>detail이 true입니다.</p>}
+      <WithRouterSample />
     </div>
   );
 };
 
-export default Profile;
+export default withRouter(Profile);
